@@ -1,0 +1,35 @@
+{
+  "name": "pm2-windows",
+  "version": "0.1.0",
+  "description": "A package for running PM2 as a windows service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "pm2",
+    "windows",
+    "service",
+    "pm2-windows-service",
+    "pm2-service"
+  ],
+  "author": "Jordan Ashley Craw (rageycomma)",
+  "license": "MIT",
+  "dependencies": {
+    "node-windows": "^0.1.14"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^8.3.4",
+    "commitlint": "^8.3.4",
+    "gulp": "^4.0.2",
+    "husky": "^4.0.6",
+    "jest": "^24.9.0",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.4"
+  }
+}
