@@ -16,6 +16,7 @@
   "author": "Jordan Ashley Craw (rageycomma)",
   "license": "MIT",
   "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.15.0",
     "node-windows": "^0.1.14"
   },
   "husky": {
@@ -25,11 +26,19 @@
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^8.3.4",
+    "@typescript-eslint/parser": "^2.15.0",
     "commitlint": "^8.3.4",
+    "del": "^5.1.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
     "gulp": "^4.0.2",
+    "gulp-typescript": "^6.0.0-alpha.1",
     "husky": "^4.0.6",
     "jest": "^24.9.0",
-    "tslint": "^5.20.1",
     "typescript": "^3.7.4"
   }
 }
