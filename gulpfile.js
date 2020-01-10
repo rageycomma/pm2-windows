@@ -2,9 +2,11 @@ const gulp = require('gulp');
 const gulpTypescript = require('gulp-typescript');
 const del = require('del');
 const jest = require('gulp-jest').default;
+const eslint = require('gulp-eslint');
 const jestConfig = require('./jest.config');
 
 // Constants, in case file names of dependencies change
+const SRC_DIR = 'src';
 const COMPILE_OUT_DIR = 'dist';
 const TSCONFIG_NAME = 'tsconfig.json';
 const SPEC_DIR = 'spec';
@@ -31,7 +33,6 @@ async function clearBuildDirectory() {
   return del([COMPILE_OUT_DIR]);
 }
 
-
 /**
  * Runs Jest to perform unit test coverage.
  *
@@ -41,11 +42,23 @@ function jestTestsAndCoverage() {
     .pipe(jest(jestConfig));
 }
 
+/**
+ * Check to see if code complies with eslint.
+ *
+ */
+function eslintCompliance() {
+  return gulp.src([SRC_DIR, 'jest.config.js'])
+    .pipe(eslint({
+      useEslintrc: true,
+    }));
+}
+
 // Definition of Gulp tasks
 gulp.task('buildTypescript', buildTypescript);
 gulp.task('clearBuildDirectory', clearBuildDirectory);
 gulp.task('jestTestsAndCoverage', jestTestsAndCoverage);
+gulp.task('eslintCompliance', eslintCompliance);
 
 module.exports = {
-  default: gulp.series('clearBuildDirectory', 'buildTypescript', 'jestTestsAndCoverage'),
+  default: gulp.series('eslintCompliance', 'clearBuildDirectory', 'buildTypescript', 'jestTestsAndCoverage'),
 };
